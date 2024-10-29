@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-// Define a simple route for testing
-router.get('/sign-in', (req, res) => {
-  res.send('Sign In Page');
+// Render Sign-up page
+router.get('/sign-up', (req, res) => {
+  res.render('auth/sign-up');
 });
+
+//Render Sign-in page
+router.get('/sign-in', (req, res) => {
+    res.render('auth/sign-in');
+});
+
+
 
 // Export the router
 module.exports = router;
