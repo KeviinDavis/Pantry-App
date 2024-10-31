@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Pantry</title>
+</head>
+<body>
+  <h1>Welcome to My Pantry</h1>
+
+  <!-- Check if user is logged in-->
+  <% if (user) { %>
+    <p>Welcome, <%= user.username %>!</p>
+    <a href="/auth/sign-out">Sign Out</a>
+
+    <!-- Link to add a new pantry item-->
+    <a href="/pantry/new">Add New Item</a>
+
+    <!-- Display list of pantry items-->
+    <h2>Your Pantry Items:</h2>
+    <ul>
+      <% items.forEach(item => { %>
+        <li>
+          <%= item.name %>
+          <!-- Link to edit the pantry item -->
+          <a href="/pantry/<%= item._id %>/edit">Edit</a>
+          <!-- Delete form for the pantry item -->
+          <form action="/pantry/<%= item._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+
+
+  <% } else { %>
+    <!-- if user is not loggin in, show sign-in and sign-up links -->
+    <a href="/auth/sign-in">Sign In</a> | <a href="/auth/sign-up">Sign Up</a>
+  <% } %>
+</body>
+</html>

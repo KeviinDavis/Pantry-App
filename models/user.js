@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 
+//Define Schema for food items
+const foodSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+});
+
 //Define the user schema 
 const userSchema = new mongoose.Schema({
     username: {
@@ -10,9 +18,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    pantry: [foodSchema] //Embedding foodSchema as an array in the user model
     });
 
-    const User = mongoose.model('User', userSchema);
 
-    module.exports = User;
+//Create and Export user model
+const User = mongoose.model('User', userSchema);
+module.exports = User;

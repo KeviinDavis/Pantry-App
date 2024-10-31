@@ -35,13 +35,46 @@ res.redirect('/auth/sign-up'); // Redirect back if there's an error
 }
 });
 
-
 //Render Sign-in page
 router.get('/sign-in', (req, res) => {
     res.render('auth/sign-in');
 });
 
+router.post('/sign-in', async (req, res) => {
+  try {
+    //Find the user by username
+    const user = await User.findOne({ username: req.body.username });
+    if (!user) {
+      return res.send('Invalid username or password'); //Feedback if username is incorrect
+  }
+  //Compare the password entered with the hashed password in database
+  const match = await bcrypt.compare(req.body.password, user.password);
+  if (!match) {
+    return res.send('Invalid username or password'); //Feedback if password is incorrect
+  }
 
+  //Password matches; create a session
+  req.session.user = {
+    id: user._id,
+    username: user.username,
+  };
+
+  res.redirect('/');
+} catch (error) {
+  console.error(error);
+  res.redirect('/auth/sign-in');
+  }
+});
+
+//Handle sign-out
+router.get('/sign-out', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.send('Error logging out');
+  }
+res.redirect('/'); //Redirected back to home page after loggin out
+  });
+});
 
 // Export the router
 module.exports = router;
