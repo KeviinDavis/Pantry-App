@@ -289,3 +289,44 @@ body {
 .form-card a:hover {
     text-decoration: underline;
 }
+/* Main content area */
+.main-content {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align the content */
+    gap: 20px;
+    width: 85%;
+    max-width: 1000px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Center-align the welcome message */
+.main-content p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Pantry items section (logged-in view) */
+.pantry-items-section {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* Add some spacing below the welcome message */
+    text-align: center;
+}
+
+/* Flexbox layout for logged-out sections */
+.logged-out-sections {
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* Centers the two sections horizontally */
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 20px;
+}
