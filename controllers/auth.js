@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 const User = require('../models/user');
 
@@ -18,7 +18,7 @@ if (existingUser) {
 }  
 
 // Hash password
-const hashedPassword = await bcrypt.hash(req.body.password, 10);
+const hashedPassword = await bcryptjs.hash(req.body.password, 10);
 
 //Create a new userwith hashed password
 const newUser = new User ({
@@ -48,7 +48,7 @@ router.post('/sign-in', async (req, res) => {
       return res.send('Invalid username or password'); //Feedback if username is incorrect
   }
   //Compare the password entered with the hashed password in database
-  const match = await bcrypt.compare(req.body.password, user.password);
+  const match = await bcryptjs.compare(req.body.password, user.password);
   if (!match) {
     return res.send('Invalid username or password'); //Feedback if password is incorrect
   }
