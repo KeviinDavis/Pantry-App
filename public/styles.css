@@ -1,0 +1,291 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    max-width: 1000px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: #333;
+    flex: 1;
+}
+
+.header .button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.header .button:hover {
+    background-color: #c9302c;
+}
+
+/* Main content area */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 85%;
+    max-width: 1000px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Individual section styling for logged-out view (Sign Up / Log In) */
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 45%;
+    max-width: 300px;
+    min-height: 380px; /* Enforce a consistent minimum height */
+}
+
+.section img {
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Pantry items section (logged-in view) */
+.pantry-items-section {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pantry-items-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+/* Pantry list styling */
+.pantry-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.pantry-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pantry-item span {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Item actions (Edit and Delete buttons) */
+.item-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.button.small {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+
+/* Add New Item Button styling */
+.add-item-button {
+    margin-top: 20px;
+}
+
+.add-item-button .button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.add-item-button .button:hover {
+    opacity: 0.9;
+}
+
+/* Form container styling for the Sign-In page */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+/* Styling input fields */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+/* Styling the submit button */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    opacity: 0.9;
+}
+
+/* Link styling in the form */
+.form-container p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.form-container p a {
+    color: #d9534f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-container p a:hover {
+    text-decoration: underline;
+}
+
+/* New and Edit Form Container */
+.form-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Center vertically */
+}
+
+/* New and Edit Item Forms */
+.form-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-card h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.form-card label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+    text-align: left;
+}
+
+.form-card input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.form-card button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.form-card button:hover {
+    opacity: 0.9;
+}
+
+.form-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d9534f;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.form-card a:hover {
+    text-decoration: underline;
+}

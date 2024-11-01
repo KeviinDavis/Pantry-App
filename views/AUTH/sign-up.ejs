@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-up</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Sign Up - My Pantry</title>
 </head>
 <body>
-    <h1>Create an Account</h1>
+  <!-- Header -->
+  <header class="header">
+    <h1>My Pantry</h1>
+    <a href="/" class="button red">Home</a>
+  </header>
+
+  <!-- Sign-Up Form -->
+  <div class="form-container">
+    <h2>Create an Account</h2>
     <form action="/auth/sign-up" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
 
-        <button type="submit">Sign Up</button>
+      <button type="submit" class="button dark">Sign Up</button>
     </form>
-
-<p>Already have an account?<a href="/auth/sign-in">Sign In</a></p>
+    <p>Already have an account? <a href="/auth/sign-in">Log in</a></p>
+  </div>
 </body>
 </html>

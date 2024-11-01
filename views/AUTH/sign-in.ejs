@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In</title>
+  <link rel="stylesheet" href="/styles.css">
+  <title>Sign In - My Pantry</title>
 </head>
 <body>
-  <h1>Sign In</h1>
-  <form action="/auth/sign-in" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+  <!-- Header -->
+  <header class="header">
+    <h1>My Pantry</h1>
+    <a href="/" class="button red">Home</a>
+  </header>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+  <!-- Form Container -->
+  <div class="form-container">
+    <h2>Sign In</h2>
+    <form action="/auth/sign-in" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
 
-    <button type="submit">Sign In</button>
-  </form>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit" class="button dark">Sign In</button>
+    </form>
+    <p>Don’t have an account? <a href="/auth/sign-up">Sign up</a></p>
+  </div>
 </body>
 </html>
+

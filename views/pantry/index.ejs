@@ -3,39 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
   <title>My Pantry</title>
 </head>
 <body>
-  <h1>Welcome to My Pantry</h1>
+  <!-- Header -->
+  <header class="header">
+    <h1>My Pantry</h1>
+    <% if (user) { %>
+      <a href="/auth/sign-out" class="button red">Sign Out</a>
+    <% } else { %>
+      <a href="/auth/sign-in" class="button red">Log In</a>
+    <% } %>
+  </header>
 
-  <!-- Check if user is logged in-->
-  <% if (user) { %>
-    <p>Welcome, <%= user.username %>!</p>
-    <a href="/auth/sign-out">Sign Out</a>
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <% if (user) { %>
+      <!-- Logged-in View -->
+      <p>Welcome, <%= user.username %>!</p>
 
-    <!-- Link to add a new pantry item-->
-    <a href="/pantry/new">Add New Item</a>
+      <!-- Pantry Items Section -->
+      <div class="pantry-items-section">
+        <h2>Your Pantry Items:</h2>
+        <ul class="pantry-list">
+          <% items.forEach(item => { %>
+            <li class="pantry-item">
+              <span><%= item.name %></span>
+              <div class="item-actions">
+                <a href="/pantry/<%= item._id %>/edit" class="button small dark">Edit</a>
+                <form action="/pantry/<%= item._id %>?_method=DELETE" method="POST" style="display: inline;">
+                  <button type="submit" class="button small red">Delete</button>
+                </form>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
 
-    <!-- Display list of pantry items-->
-    <h2>Your Pantry Items:</h2>
-    <ul>
-      <% items.forEach(item => { %>
-        <li>
-          <%= item.name %>
-          <!-- Link to edit the pantry item -->
-          <a href="/pantry/<%= item._id %>/edit">Edit</a>
-          <!-- Delete form for the pantry item -->
-          <form action="/pantry/<%= item._id %>?_method=DELETE" method="POST" style="display:inline;">
-            <button type="submit">Delete</button>
-          </form>
-        </li>
-      <% }) %>
-    </ul>
-
-
-  <% } else { %>
-    <!-- if user is not loggin in, show sign-in and sign-up links -->
-    <a href="/auth/sign-in">Sign In</a> | <a href="/auth/sign-up">Sign Up</a>
-  <% } %>
+        <!-- Add New Item Button below pantry list -->
+        <div class="add-item-button">
+          <a href="/pantry/new" class="button dark">Add New Item</a>
+        </div>
+      </div>
+    <% } else { %>
+      <!-- Logged-out View -->
+      <div class="section">
+        <h3>Sign up</h3>
+        <p>Free Account</p>
+        <a href="/auth/sign-up" class="button dark">Sign up</a>
+        <img src="/images/jar.png" alt="Empty Jar">
+      </div>
+      <div class="section">
+        <h3>Log In</h3>
+        <p>Already have an account?</p>
+        <a href="/auth/sign-in" class="button dark">Log In</a>
+        <img src="/images/spice-jars.png" alt="Spice Jars">
+      </div>
+    <% } %>
+  </div>
 </body>
 </html>

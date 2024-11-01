@@ -25,6 +25,7 @@ app.set('view engine', 'ejs');
 // Middleware for form data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 // Middleware for sessions
 app.use(
