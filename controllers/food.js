@@ -78,8 +78,8 @@ router.delete('/:id', async (req, res) => {
     // Find the index of the item in the pantry array
     const itemIndex = user.pantry.findIndex(item => item._id.toString() === req.params.id);
     if (itemIndex > -1) {
-      user.pantry.splice(itemIndex, 1); // Remove the item from the array
-      await user.save(); // Save the updated user document
+      user.pantry.splice(itemIndex, 1); 
+      await user.save();
     }
     
     res.redirect('/pantry');

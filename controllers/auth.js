@@ -14,7 +14,7 @@ try {
 // Checks if username is already taken
   const existingUser = await User.findOne({ username: req.body.username });
 if (existingUser) {
-  return res.send('Username already taken'); //Feedback if username is taken
+  return res.send('Username already taken');
 }  
 
 // Hash password
@@ -28,10 +28,10 @@ const newUser = new User ({
 
 // Save the user to the database
 await newUser.save();
-res.redirect('/auth/sign-in'); // Redirect to Sign-in page upon successful sign-up
+res.redirect('/auth/sign-in');
 } catch (error) {
 console.error(error);
-res.redirect('/auth/sign-up'); // Redirect back if there's an error
+res.redirect('/auth/sign-up');
 }
 });
 
@@ -45,12 +45,12 @@ router.post('/sign-in', async (req, res) => {
     //Find the user by username
     const user = await User.findOne({ username: req.body.username });
     if (!user) {
-      return res.send('Invalid username or password'); //Feedback if username is incorrect
+      return res.send('Invalid username or password');
   }
   //Compare the password entered with the hashed password in database
   const match = await bcrypt.compare(req.body.password, user.password);
   if (!match) {
-    return res.send('Invalid username or password'); //Feedback if password is incorrect
+    return res.send('Invalid username or password');
   }
 
   //Password matches; create a session
@@ -72,7 +72,7 @@ router.get('/sign-out', (req, res) => {
     if (err) {
       return res.send('Error logging out');
   }
-res.redirect('/'); //Redirected back to home page after loggin out
+res.redirect('/'); 
   });
 });
 

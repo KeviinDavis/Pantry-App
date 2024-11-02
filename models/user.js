@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    pantry: [foodSchema] //Embedding foodSchema as an array in the user model
+    pantry: [foodSchema]
     });
 
 
