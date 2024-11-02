@@ -6,7 +6,7 @@ My Pantry is a CRUD application built with the MEN stack (MongoDB, Express, Node
 ![Create account Page](<public/images/Create Account Page.png>)
 ![Home Page(Signed in)](<public/images/Signed in Home Page.png>)
 ![Sign-in Page](<public/images/Sign in Page.png>)
-![Sign-up Page](<public/images/Sign up Page.png>)
+![Sign-up Page](<public/images/Create Account Page.png>)
 ![Edit Page](<public/images/Edit item.png>)
 ![Add Page](<public/images/Add item.png>)
 
