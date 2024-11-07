@@ -5,6 +5,7 @@ const User = require('../models/user');
 
 // Render Sign-up page
 router.get('/sign-up', (req, res) => {
+  console.log("Attempting to render 'auth/sign-up' view");
   res.render('auth/sign-up');
 });
 
@@ -35,9 +36,10 @@ res.redirect('/auth/sign-up');
 }
 });
 
-//Render Sign-in page
+// Render Sign-in page
 router.get('/sign-in', (req, res) => {
-    res.render('auth/sign-in');
+  console.log("Attempting to render 'auth/sign-in' view");
+  res.render('auth/sign-in');
 });
 
 router.post('/sign-in', async (req, res) => {
